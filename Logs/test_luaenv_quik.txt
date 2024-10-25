@@ -1,0 +1,1009 @@
+_VERSION = Lua 5.4
+getVersion() = Lua 5.4
+global 'arg' is nil
+
+- - - -
+
+AddColumn()
+AddLabel()
+AllocTable()
+CalcBuySell()
+CancelParamRequest()
+Clear()
+CreateDataSource()
+CreateWindow()
+DelAllLabels()
+DelLabel()
+DeleteRow()
+DestroyTable()
+GetCell()
+GetInfoParam()
+GetLabelParams()
+GetTableSize()
+GetTradeDate()
+GetWindowCaption()
+GetWindowRect()
+Highlight()
+InsertRow()
+IsSubscribed_Level_II_Quotes()
+IsWindowClosed()
+ParamRequest()
+PrintDbgStr()
+RGB()
+SearchItems()
+SetCell()
+SetColor()
+SetLabelParams()
+SetSelectedRow()
+SetTableCallback()
+SetTableNotificationCallback()
+SetWindowCaption()
+SetWindowPos()
+Subscribe_Level_II_Quotes()
+Unsubscribe_Level_II_Quotes()
+UpdateRow()
+_G.AddColumn()
+_G.AddLabel()
+_G.AllocTable()
+_G.CalcBuySell()
+_G.CancelParamRequest()
+_G.Clear()
+_G.CreateDataSource()
+_G.CreateWindow()
+_G.DelAllLabels()
+_G.DelLabel()
+_G.DeleteRow()
+_G.DestroyTable()
+_G.GetCell()
+_G.GetInfoParam()
+_G.GetLabelParams()
+_G.GetTableSize()
+_G.GetTradeDate()
+_G.GetWindowCaption()
+_G.GetWindowRect()
+_G.Highlight()
+_G.InsertRow()
+_G.IsSubscribed_Level_II_Quotes()
+_G.IsWindowClosed()
+_G.ParamRequest()
+_G.PrintDbgStr()
+_G.RGB()
+_G.SearchItems()
+_G.SetCell()
+_G.SetColor()
+_G.SetLabelParams()
+_G.SetSelectedRow()
+_G.SetTableCallback()
+_G.SetTableNotificationCallback()
+_G.SetWindowCaption()
+_G.SetWindowPos()
+_G.Subscribe_Level_II_Quotes()
+_G.Unsubscribe_Level_II_Quotes()
+_G.UpdateRow()
+_G.assert()
+_G.collectgarbage()
+_G.dofile()
+_G.error()
+_G.getBuySellInfo()
+_G.getBuySellInfoEx()
+_G.getCandlesByIndex()
+_G.getClassInfo()
+_G.getClassSecurities()
+_G.getClassesList()
+_G.getClientCodeByTrdAcc()
+_G.getClientCorrelationCoefs()
+_G.getClientSecurityCoefs()
+_G.getDepo()
+_G.getDepoEx()
+_G.getFuturesHolding()
+_G.getFuturesLimit()
+_G.getInfoParam()
+_G.getItem()
+_G.getLinesCount()
+_G.getMoney()
+_G.getMoneyEx()
+_G.getNumCandles()
+_G.getNumberOf()
+_G.getOrderByNumber()
+_G.getParamEx()
+_G.getParamEx2()
+_G.getPortfolioInfo()
+_G.getPortfolioInfoEx()
+_G.getPortfolioInfoEx2()
+_G.getQuoteLevel2()
+_G.getQuoteLevel2Ex()
+_G.getScriptPath()
+_G.getSecurityInfo()
+_G.getTradeDate()
+_G.getTrdAccByClientCode()
+_G.getUniqTransID()
+_G.getWorkingFolder()
+_G.getmetatable()
+_G.iif()
+_G.iiff()
+_G.ipairs()
+_G.isConnected()
+_G.isDarkTheme()
+_G.isLimitsInLots()
+_G.isUcpClient()
+_G.load()
+_G.loadfile()
+_G.main()
+_G.message()
+_G.message_ex()
+_G.next()
+_G.pairs()
+_G.pcall()
+_G.prec_time()
+_G.print()
+_G.rawequal()
+_G.rawget()
+_G.rawlen()
+_G.rawset()
+_G.require()
+_G.select()
+_G.sendTransaction()
+_G.setmetatable()
+_G.sleep()
+_G.tonumber()
+_G.tostring()
+_G.type()
+_G.warn()
+_G.xpcall()
+assert()
+bit.arshift()
+bit.band()
+bit.bnot()
+bit.bor()
+bit.bswap()
+bit.bxor()
+bit.lshift()
+bit.rol()
+bit.ror()
+bit.rshift()
+bit.test()
+bit.tobit()
+bit.tohex()
+collectgarbage()
+coroutine.close()
+coroutine.create()
+coroutine.isyieldable()
+coroutine.resume()
+coroutine.running()
+coroutine.status()
+coroutine.wrap()
+coroutine.yield()
+debug.debug()
+debug.gethook()
+debug.getinfo()
+debug.getlocal()
+debug.getmetatable()
+debug.getregistry()
+debug.getupvalue()
+debug.getuservalue()
+debug.setcstacklimit()
+debug.sethook()
+debug.setlocal()
+debug.setmetatable()
+debug.setupvalue()
+debug.setuservalue()
+debug.traceback()
+debug.upvalueid()
+debug.upvaluejoin()
+dofile()
+dump.compact()
+dump.extended()
+error()
+getBuySellInfo()
+getBuySellInfoEx()
+getCandlesByIndex()
+getClassInfo()
+getClassSecurities()
+getClassesList()
+getClientCodeByTrdAcc()
+getClientCorrelationCoefs()
+getClientSecurityCoefs()
+getDepo()
+getDepoEx()
+getFuturesHolding()
+getFuturesLimit()
+getInfoParam()
+getItem()
+getLinesCount()
+getMoney()
+getMoneyEx()
+getNumCandles()
+getNumberOf()
+getOrderByNumber()
+getParamEx()
+getParamEx2()
+getPortfolioInfo()
+getPortfolioInfoEx()
+getPortfolioInfoEx2()
+getQuoteLevel2()
+getQuoteLevel2Ex()
+getScriptPath()
+getSecurityInfo()
+getTradeDate()
+getTrdAccByClientCode()
+getUniqTransID()
+getWorkingFolder()
+getmetatable()
+iif()
+iiff()
+inspect.inspect()
+io.close()
+io.flush()
+io.input()
+io.lines()
+io.open()
+io.output()
+io.popen()
+io.read()
+io.tmpfile()
+io.type()
+io.write()
+ipairs()
+isConnected()
+isDarkTheme()
+isLimitsInLots()
+isUcpClient()
+load()
+loadfile()
+main()
+math.abs()
+math.acos()
+math.asin()
+math.atan()
+math.ceil()
+math.cos()
+math.deg()
+math.exp()
+math.floor()
+math.fmod()
+math.log()
+math.max()
+math.min()
+math.modf()
+math.rad()
+math.random()
+math.randomseed()
+math.sin()
+math.sqrt()
+math.tan()
+math.tointeger()
+math.type()
+math.ult()
+message()
+message_ex()
+next()
+os.clock()
+os.date()
+os.difftime()
+os.execute()
+os.exit()
+os.getenv()
+os.remove()
+os.rename()
+os.setlocale()
+os.sysdate()
+os.time()
+os.tmpname()
+package.loadlib()
+package.searchpath()
+pairs()
+pcall()
+prec_time()
+print()
+rawequal()
+rawget()
+rawlen()
+rawset()
+require()
+searchers.1()
+searchers.2()
+searchers.3()
+searchers.4()
+select()
+sendTransaction()
+setmetatable()
+sleep()
+string.byte()
+string.char()
+string.dump()
+string.find()
+string.format()
+string.gmatch()
+string.gsub()
+string.len()
+string.lower()
+string.match()
+string.pack()
+string.packsize()
+string.rep()
+string.reverse()
+string.sub()
+string.unpack()
+string.upper()
+table.concat()
+table.contains()
+table.count()
+table.countall()
+table.extract()
+table.filter()
+table.haskey()
+table.iextract()
+table.iflatten()
+table.ijoin()
+table.implode()
+table.indexof()
+table.insert()
+table.iremoveval()
+table.iremovevalall()
+table.iremovevalfirst()
+table.iremovevallast()
+table.isempty()
+table.itranslate()
+table.keys()
+table.lastindexof()
+table.move()
+table.pack()
+table.remove()
+table.sconcat()
+table.sinsert()
+table.smaxn()
+table.sort()
+table.sremove()
+table.ssort()
+table.translate()
+table.unpack()
+tonumber()
+tostring()
+type()
+utf8.char()
+utf8.codepoint()
+utf8.codes()
+utf8.len()
+utf8.offset()
+warn()
+xpcall()
+- - - -
+
+_ENV = {
+   [INTERVAL_D1] = 1440
+   [INTERVAL_H1] = 60
+   [INTERVAL_H2] = 120
+   [INTERVAL_H4] = 240
+   [INTERVAL_M1] = 1
+   [INTERVAL_M10] = 10
+   [INTERVAL_M15] = 15
+   [INTERVAL_M2] = 2
+   [INTERVAL_M20] = 20
+   [INTERVAL_M3] = 3
+   [INTERVAL_M30] = 30
+   [INTERVAL_M4] = 4
+   [INTERVAL_M5] = 5
+   [INTERVAL_M6] = 6
+   [INTERVAL_MN1] = 23200
+   [INTERVAL_TICK] = 0
+   [INTERVAL_UNDEFINED] = -1000
+   [INTERVAL_W1] = 10080
+   [QTABLE_CACHED_STRING_TYPE] = 6
+   [QTABLE_CHAR] = 6
+   [QTABLE_CLOSE] = 24
+   [QTABLE_CONTEXTMENU] = 8
+   [QTABLE_DATETIME_TYPE] = 9
+   [QTABLE_DATE_TYPE] = 8
+   [QTABLE_DEFAULT_COLOR] = -1
+   [QTABLE_DOUBLE_TYPE] = 2
+   [QTABLE_INT64_TYPE] = 4
+   [QTABLE_INT_TYPE] = 1
+   [QTABLE_LBUTTONDBLCLK] = 3
+   [QTABLE_LBUTTONDOWN] = 1
+   [QTABLE_LBUTTONUP] = 11
+   [QTABLE_MBUTTONDBLCLK] = 10
+   [QTABLE_MBUTTONDOWN] = 9
+   [QTABLE_NEED_REFILL] = 23
+   [QTABLE_NO_INDEX] = -1
+   [QTABLE_RBUTTONDBLCLK] = 4
+   [QTABLE_RBUTTONDOWN] = 2
+   [QTABLE_RBUTTONUP] = 12
+   [QTABLE_SELCHANGED] = 5
+   [QTABLE_STRING_TYPE] = 3
+   [QTABLE_TIME_TYPE] = 7
+   [QTABLE_UNKNOWN_TYPE] = 0
+   [QTABLE_VKEY] = 7
+   [T_ACCOUNT_BALANCE] = 22
+   [T_ACCOUNT_POSITIONS] = 7
+   [T_ALL_TRADES] = 6
+   [T_CCP_HOLDINGS] = 23
+   [T_CCP_POSITION] = 24
+   [T_CLASSES] = 2
+   [T_CLIENT_CODES] = 5
+   [T_DEPO_LIMITS] = 13
+   [T_FIRMS] = 1
+   [T_FIRM_HOLDING] = 21
+   [T_FUTURES_HOLDINGS] = 9
+   [T_FUTURES_LIMITS] = 10
+   [T_INDICATIVE] = 25
+   [T_MONEY_LINITS] = 12
+   [T_NEG_DEALS] = 18
+   [T_NEG_DEAL_REPORTS] = 19
+   [T_NEG_TRADES] = 17
+   [T_ORDERS] = 8
+   [T_PRICERANGE] = 26
+   [T_RM_HOLDINGS] = 27
+   [T_SECURITIES] = 3
+   [T_STOP_ORDERS] = 16
+   [T_TRADES] = 15
+   [T_TRADE_ACCOUNTS] = 4
+   [_VERSION] = Lua 5.4
+   AddColumn()
+   AddLabel()
+   AllocTable()
+   CalcBuySell()
+   CancelParamRequest()
+   Clear()
+   CreateDataSource()
+   CreateWindow()
+   DelAllLabels()
+   DelLabel()
+   DeleteRow()
+   DestroyTable()
+   GetCell()
+   GetInfoParam()
+   GetLabelParams()
+   GetTableSize()
+   GetTradeDate()
+   GetWindowCaption()
+   GetWindowRect()
+   Highlight()
+   InsertRow()
+   IsSubscribed_Level_II_Quotes()
+   IsWindowClosed()
+   ParamRequest()
+   PrintDbgStr()
+   RGB()
+   SearchItems()
+   SetCell()
+   SetColor()
+   SetLabelParams()
+   SetSelectedRow()
+   SetTableCallback()
+   SetTableNotificationCallback()
+   SetWindowCaption()
+   SetWindowPos()
+   Subscribe_Level_II_Quotes()
+   Unsubscribe_Level_II_Quotes()
+   UpdateRow()
+   assert()
+   collectgarbage()
+   dofile()
+   error()
+   getBuySellInfo()
+   getBuySellInfoEx()
+   getCandlesByIndex()
+   getClassInfo()
+   getClassSecurities()
+   getClassesList()
+   getClientCodeByTrdAcc()
+   getClientCorrelationCoefs()
+   getClientSecurityCoefs()
+   getDepo()
+   getDepoEx()
+   getFuturesHolding()
+   getFuturesLimit()
+   ["getInfoParam"] = _ENV.GetInfoParam
+   getItem()
+   getLinesCount()
+   getMoney()
+   getMoneyEx()
+   getNumCandles()
+   getNumberOf()
+   getOrderByNumber()
+   getParamEx()
+   getParamEx2()
+   getPortfolioInfo()
+   getPortfolioInfoEx()
+   getPortfolioInfoEx2()
+   getQuoteLevel2()
+   getQuoteLevel2Ex()
+   getScriptPath()
+   getSecurityInfo()
+   ["getTradeDate"] = _ENV.GetTradeDate
+   getTrdAccByClientCode()
+   getUniqTransID()
+   getWorkingFolder()
+   getmetatable()
+   iif()
+   iiff()
+   ipairs()
+   isConnected()
+   isDarkTheme()
+   isLimitsInLots()
+   isUcpClient()
+   load()
+   loadfile()
+   main()
+   message()
+   message_ex()
+   next()
+   pairs()
+   pcall()
+   prec_time()
+   print()
+   rawequal()
+   rawget()
+   rawlen()
+   rawset()
+   require()
+   select()
+   sendTransaction()
+   setmetatable()
+   sleep()
+   tonumber()
+   tostring()
+   type()
+   warn()
+   xpcall()
+   [bit] = {
+      arshift()
+      band()
+      bnot()
+      bor()
+      bswap()
+      bxor()
+      lshift()
+      rol()
+      ror()
+      rshift()
+      test()
+      tobit()
+      tohex()
+   }
+   [coroutine] = {
+      close()
+      create()
+      isyieldable()
+      resume()
+      running()
+      status()
+      wrap()
+      yield()
+   }
+   [debug] = {
+      debug()
+      gethook()
+      getinfo()
+      getlocal()
+      getmetatable()
+      getregistry()
+      getupvalue()
+      getuservalue()
+      setcstacklimit()
+      sethook()
+      setlocal()
+      setmetatable()
+      setupvalue()
+      setuservalue()
+      traceback()
+      upvalueid()
+      upvaluejoin()
+   }
+   [io] = {
+      close()
+      flush()
+      input()
+      lines()
+      open()
+      output()
+      popen()
+      read()
+      tmpfile()
+      type()
+      write()
+      [stderr] = file (00007FFBE3896100), <metatable> = {
+         [__name] = FILE*
+         __close()
+         ["__gc"] = _ENV.io.stderr.<metatable>.__close
+         __tostring()
+         [__index] = {
+            close()
+            flush()
+            lines()
+            read()
+            seek()
+            setvbuf()
+            write()
+         }
+      }
+      [stdin] = file (00007FFBE3896050), <metatable> = {
+         [__name] = FILE*
+         ["__close"] = _ENV.io.stderr.<metatable>.__close
+         ["__gc"] = _ENV.io.stderr.<metatable>.__close
+         ["__tostring"] = _ENV.io.stderr.<metatable>.__tostring
+         ["__index"] = _ENV.io.stderr.<metatable>.__index
+      }
+      [stdout] = file (00007FFBE38960A8), <metatable> = {
+         [__name] = FILE*
+         ["__close"] = _ENV.io.stderr.<metatable>.__close
+         ["__gc"] = _ENV.io.stderr.<metatable>.__close
+         ["__tostring"] = _ENV.io.stderr.<metatable>.__tostring
+         ["__index"] = _ENV.io.stderr.<metatable>.__index
+      }
+   }
+   [math] = {
+      [huge] = inf
+      [maxinteger] = 9223372036854775807
+      [mininteger] = -9223372036854775808
+      [pi] = 3.1415926535898
+      abs()
+      acos()
+      asin()
+      atan()
+      ceil()
+      cos()
+      deg()
+      exp()
+      floor()
+      fmod()
+      log()
+      max()
+      min()
+      modf()
+      rad()
+      random()
+      randomseed()
+      sin()
+      sqrt()
+      tan()
+      tointeger()
+      type()
+      ult()
+   }
+   [os] = {
+      clock()
+      date()
+      difftime()
+      execute()
+      exit()
+      getenv()
+      remove()
+      rename()
+      setlocale()
+      sysdate()
+      time()
+      tmpname()
+   }
+   [string] = {
+      byte()
+      char()
+      dump()
+      find()
+      format()
+      gmatch()
+      gsub()
+      len()
+      lower()
+      match()
+      pack()
+      packsize()
+      rep()
+      reverse()
+      sub()
+      unpack()
+      upper()
+   }
+   [table] = {
+      concat()
+      contains()
+      count()
+      countall()
+      extract()
+      filter()
+      haskey()
+      iextract()
+      iflatten()
+      ijoin()
+      implode()
+      indexof()
+      insert()
+      iremoveval()
+      iremovevalall()
+      ["iremovevalfirst"] = _ENV.table.iremoveval
+      iremovevallast()
+      isempty()
+      itranslate()
+      keys()
+      lastindexof()
+      move()
+      pack()
+      remove()
+      sconcat()
+      sinsert()
+      smaxn()
+      sort()
+      sremove()
+      ssort()
+      translate()
+      unpack()
+   }
+   [utf8] = {
+      [charpattern] = [ -Â-ý][€-¿]*
+      char()
+      codepoint()
+      codes()
+      len()
+      offset()
+   }
+   [package] = {
+      [config] = \\n;\n?\n!\n-\n
+      [cpath] = QUIK\?.dll;QUIK\..\lib\lua\5.4\?.dll;QUIK\loadall.dll;.\?.dll
+      [path] = QUIK\lua\?.lua;QUIK\lua\?\init.lua;QUIK\?.lua;QUIK\?\init.lua;QUIK\..\share\lua\5.4\?.lua;QUIK\..\share\lua\5.4\?\init.lua;.\?.lua;.\?\init.lua
+      loadlib()
+      searchpath()
+      [loaded] = {
+         [ex_table] = true
+         [iif] = true
+         ["bit"] = _ENV.bit
+         ["coroutine"] = _ENV.coroutine
+         ["debug"] = _ENV.debug
+         [dump] = {
+            compact()
+            extended()
+         }
+         [inspect] = {
+            [_DESCRIPTION] = human-readable representations of tables
+            [_LICENSE] =     MIT LICENSE\n\n    Copyright (c) 2013 Enrique GarcÃ­a Cota\n\n    Permission is hereby granted, free of charge, to any person obtaining a\n    copy of this software and associated documentation files (the\n    "Software"), to deal in the Software without restriction, including\n    without limitation the rights to use, copy, modify, merge, publish,\n    distribute, sublicense, and/or sell copies of the Software, and to\n    permit persons to whom the Software is furnished to do so, subject to\n    the following conditions:\n\n    The above copyright notice and this permission notice shall be included\n    in all copies or substantial portions of the Software.\n\n    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS\n    OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\n    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.\n    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY\n    CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,\n    TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE\n    SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n  
+            [_URL] = http://github.com/kikito/inspect.lua
+            [_VERSION] = inspect.lua 3.1.0
+            inspect()
+            [KEY] = {
+               <metatable> = {
+                  __tostring()
+               }
+            }
+            [METATABLE] = {
+               <metatable> = {
+                  __tostring()
+               }
+            }
+            <metatable> = {
+               __call()
+            }
+         }
+         ["io"] = _ENV.io
+         ["math"] = _ENV.math
+         ["os"] = _ENV.os
+         ["package"] = _ENV.package
+         ["string"] = _ENV.string
+         ["table"] = _ENV.table
+         ["utf8"] = _ENV.utf8
+         ["_G"] = _ENV._G
+      }
+      [preload] = {}
+      [searchers] = {
+         1()
+         2()
+         3()
+         4()
+      }
+   }
+   [luaenv_tbl] = {}
+   [luaenv_bool] = false
+   [luaenv_str] = , <metatable> = {
+      __add()
+      __div()
+      __idiv()
+      __mod()
+      __mul()
+      __pow()
+      __sub()
+      __unm()
+      ["__index"] = _ENV.string
+   }
+   [luaenv_int] = 1
+   [_G] = {
+      [INTERVAL_D1] = 1440
+      [INTERVAL_H1] = 60
+      [INTERVAL_H2] = 120
+      [INTERVAL_H4] = 240
+      [INTERVAL_M1] = 1
+      [INTERVAL_M10] = 10
+      [INTERVAL_M15] = 15
+      [INTERVAL_M2] = 2
+      [INTERVAL_M20] = 20
+      [INTERVAL_M3] = 3
+      [INTERVAL_M30] = 30
+      [INTERVAL_M4] = 4
+      [INTERVAL_M5] = 5
+      [INTERVAL_M6] = 6
+      [INTERVAL_MN1] = 23200
+      [INTERVAL_TICK] = 0
+      [INTERVAL_UNDEFINED] = -1000
+      [INTERVAL_W1] = 10080
+      [QTABLE_CACHED_STRING_TYPE] = 6
+      [QTABLE_CHAR] = 6
+      [QTABLE_CLOSE] = 24
+      [QTABLE_CONTEXTMENU] = 8
+      [QTABLE_DATETIME_TYPE] = 9
+      [QTABLE_DATE_TYPE] = 8
+      [QTABLE_DEFAULT_COLOR] = -1
+      [QTABLE_DOUBLE_TYPE] = 2
+      [QTABLE_INT64_TYPE] = 4
+      [QTABLE_INT_TYPE] = 1
+      [QTABLE_LBUTTONDBLCLK] = 3
+      [QTABLE_LBUTTONDOWN] = 1
+      [QTABLE_LBUTTONUP] = 11
+      [QTABLE_MBUTTONDBLCLK] = 10
+      [QTABLE_MBUTTONDOWN] = 9
+      [QTABLE_NEED_REFILL] = 23
+      [QTABLE_NO_INDEX] = -1
+      [QTABLE_RBUTTONDBLCLK] = 4
+      [QTABLE_RBUTTONDOWN] = 2
+      [QTABLE_RBUTTONUP] = 12
+      [QTABLE_SELCHANGED] = 5
+      [QTABLE_STRING_TYPE] = 3
+      [QTABLE_TIME_TYPE] = 7
+      [QTABLE_UNKNOWN_TYPE] = 0
+      [QTABLE_VKEY] = 7
+      [T_ACCOUNT_BALANCE] = 22
+      [T_ACCOUNT_POSITIONS] = 7
+      [T_ALL_TRADES] = 6
+      [T_CCP_HOLDINGS] = 23
+      [T_CCP_POSITION] = 24
+      [T_CLASSES] = 2
+      [T_CLIENT_CODES] = 5
+      [T_DEPO_LIMITS] = 13
+      [T_FIRMS] = 1
+      [T_FIRM_HOLDING] = 21
+      [T_FUTURES_HOLDINGS] = 9
+      [T_FUTURES_LIMITS] = 10
+      [T_INDICATIVE] = 25
+      [T_MONEY_LINITS] = 12
+      [T_NEG_DEALS] = 18
+      [T_NEG_DEAL_REPORTS] = 19
+      [T_NEG_TRADES] = 17
+      [T_ORDERS] = 8
+      [T_PRICERANGE] = 26
+      [T_RM_HOLDINGS] = 27
+      [T_SECURITIES] = 3
+      [T_STOP_ORDERS] = 16
+      [T_TRADES] = 15
+      [T_TRADE_ACCOUNTS] = 4
+      [_VERSION] = Lua 5.4
+      ["AddColumn"] = _ENV.AddColumn
+      ["AddLabel"] = _ENV.AddLabel
+      ["AllocTable"] = _ENV.AllocTable
+      ["CalcBuySell"] = _ENV.CalcBuySell
+      ["CancelParamRequest"] = _ENV.CancelParamRequest
+      ["Clear"] = _ENV.Clear
+      ["CreateDataSource"] = _ENV.CreateDataSource
+      ["CreateWindow"] = _ENV.CreateWindow
+      ["DelAllLabels"] = _ENV.DelAllLabels
+      ["DelLabel"] = _ENV.DelLabel
+      ["DeleteRow"] = _ENV.DeleteRow
+      ["DestroyTable"] = _ENV.DestroyTable
+      ["GetCell"] = _ENV.GetCell
+      ["GetInfoParam"] = _ENV.GetInfoParam
+      ["GetLabelParams"] = _ENV.GetLabelParams
+      ["GetTableSize"] = _ENV.GetTableSize
+      ["GetTradeDate"] = _ENV.GetTradeDate
+      ["GetWindowCaption"] = _ENV.GetWindowCaption
+      ["GetWindowRect"] = _ENV.GetWindowRect
+      ["Highlight"] = _ENV.Highlight
+      ["InsertRow"] = _ENV.InsertRow
+      ["IsSubscribed_Level_II_Quotes"] = _ENV.IsSubscribed_Level_II_Quotes
+      ["IsWindowClosed"] = _ENV.IsWindowClosed
+      ["ParamRequest"] = _ENV.ParamRequest
+      ["PrintDbgStr"] = _ENV.PrintDbgStr
+      ["RGB"] = _ENV.RGB
+      ["SearchItems"] = _ENV.SearchItems
+      ["SetCell"] = _ENV.SetCell
+      ["SetColor"] = _ENV.SetColor
+      ["SetLabelParams"] = _ENV.SetLabelParams
+      ["SetSelectedRow"] = _ENV.SetSelectedRow
+      ["SetTableCallback"] = _ENV.SetTableCallback
+      ["SetTableNotificationCallback"] = _ENV.SetTableNotificationCallback
+      ["SetWindowCaption"] = _ENV.SetWindowCaption
+      ["SetWindowPos"] = _ENV.SetWindowPos
+      ["Subscribe_Level_II_Quotes"] = _ENV.Subscribe_Level_II_Quotes
+      ["Unsubscribe_Level_II_Quotes"] = _ENV.Unsubscribe_Level_II_Quotes
+      ["UpdateRow"] = _ENV.UpdateRow
+      ["assert"] = _ENV.assert
+      ["collectgarbage"] = _ENV.collectgarbage
+      ["dofile"] = _ENV.dofile
+      ["error"] = _ENV.error
+      ["getBuySellInfo"] = _ENV.getBuySellInfo
+      ["getBuySellInfoEx"] = _ENV.getBuySellInfoEx
+      ["getCandlesByIndex"] = _ENV.getCandlesByIndex
+      ["getClassInfo"] = _ENV.getClassInfo
+      ["getClassSecurities"] = _ENV.getClassSecurities
+      ["getClassesList"] = _ENV.getClassesList
+      ["getClientCodeByTrdAcc"] = _ENV.getClientCodeByTrdAcc
+      ["getClientCorrelationCoefs"] = _ENV.getClientCorrelationCoefs
+      ["getClientSecurityCoefs"] = _ENV.getClientSecurityCoefs
+      ["getDepo"] = _ENV.getDepo
+      ["getDepoEx"] = _ENV.getDepoEx
+      ["getFuturesHolding"] = _ENV.getFuturesHolding
+      ["getFuturesLimit"] = _ENV.getFuturesLimit
+      ["getInfoParam"] = _ENV.GetInfoParam
+      ["getItem"] = _ENV.getItem
+      ["getLinesCount"] = _ENV.getLinesCount
+      ["getMoney"] = _ENV.getMoney
+      ["getMoneyEx"] = _ENV.getMoneyEx
+      ["getNumCandles"] = _ENV.getNumCandles
+      ["getNumberOf"] = _ENV.getNumberOf
+      ["getOrderByNumber"] = _ENV.getOrderByNumber
+      ["getParamEx"] = _ENV.getParamEx
+      ["getParamEx2"] = _ENV.getParamEx2
+      ["getPortfolioInfo"] = _ENV.getPortfolioInfo
+      ["getPortfolioInfoEx"] = _ENV.getPortfolioInfoEx
+      ["getPortfolioInfoEx2"] = _ENV.getPortfolioInfoEx2
+      ["getQuoteLevel2"] = _ENV.getQuoteLevel2
+      ["getQuoteLevel2Ex"] = _ENV.getQuoteLevel2Ex
+      ["getScriptPath"] = _ENV.getScriptPath
+      ["getSecurityInfo"] = _ENV.getSecurityInfo
+      ["getTradeDate"] = _ENV.GetTradeDate
+      ["getTrdAccByClientCode"] = _ENV.getTrdAccByClientCode
+      ["getUniqTransID"] = _ENV.getUniqTransID
+      ["getWorkingFolder"] = _ENV.getWorkingFolder
+      ["getmetatable"] = _ENV.getmetatable
+      ["iif"] = _ENV.iif
+      ["iiff"] = _ENV.iiff
+      ["ipairs"] = _ENV.ipairs
+      ["isConnected"] = _ENV.isConnected
+      ["isDarkTheme"] = _ENV.isDarkTheme
+      ["isLimitsInLots"] = _ENV.isLimitsInLots
+      ["isUcpClient"] = _ENV.isUcpClient
+      ["load"] = _ENV.load
+      ["loadfile"] = _ENV.loadfile
+      ["main"] = _ENV.main
+      ["message"] = _ENV.message
+      ["message_ex"] = _ENV.message_ex
+      ["next"] = _ENV.next
+      ["pairs"] = _ENV.pairs
+      ["pcall"] = _ENV.pcall
+      ["prec_time"] = _ENV.prec_time
+      ["print"] = _ENV.print
+      ["rawequal"] = _ENV.rawequal
+      ["rawget"] = _ENV.rawget
+      ["rawlen"] = _ENV.rawlen
+      ["rawset"] = _ENV.rawset
+      ["require"] = _ENV.require
+      ["select"] = _ENV.select
+      ["sendTransaction"] = _ENV.sendTransaction
+      ["setmetatable"] = _ENV.setmetatable
+      ["sleep"] = _ENV.sleep
+      ["tonumber"] = _ENV.tonumber
+      ["tostring"] = _ENV.tostring
+      ["type"] = _ENV.type
+      ["warn"] = _ENV.warn
+      ["xpcall"] = _ENV.xpcall
+      ["bit"] = _ENV.bit
+      ["coroutine"] = _ENV.coroutine
+      ["debug"] = _ENV.debug
+      ["io"] = _ENV.io
+      ["math"] = _ENV.math
+      ["os"] = _ENV.os
+      ["string"] = _ENV.string
+      ["table"] = _ENV.table
+      ["utf8"] = _ENV.utf8
+      ["package"] = _ENV.package
+      [luaenv_tbl] = {}
+      [luaenv_bool] = false
+      [luaenv_str] = , <metatable> = {
+         ["__add"] = _ENV.luaenv_str.<metatable>.__add
+         ["__div"] = _ENV.luaenv_str.<metatable>.__div
+         ["__idiv"] = _ENV.luaenv_str.<metatable>.__idiv
+         ["__mod"] = _ENV.luaenv_str.<metatable>.__mod
+         ["__mul"] = _ENV.luaenv_str.<metatable>.__mul
+         ["__pow"] = _ENV.luaenv_str.<metatable>.__pow
+         ["__sub"] = _ENV.luaenv_str.<metatable>.__sub
+         ["__unm"] = _ENV.luaenv_str.<metatable>.__unm
+         ["__index"] = _ENV.string
+      }
+      [luaenv_int] = 1
+      ["_G"] = _ENV._G
+   }
+}
