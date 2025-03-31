@@ -6,6 +6,8 @@
 /spool/
 /WNDSAV/
 
+/dmp
+
 *.exe
 *.dll
 *.dat
