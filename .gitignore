@@ -27,7 +27,7 @@
 /QRYPTO.CFG
 /*.txk
 
-/kds.lua
+# /kds.lua
 
 /clear.cmd
 /clear_wnd.cmd
