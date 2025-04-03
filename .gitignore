@@ -33,3 +33,6 @@
 /clear_wnd.cmd
 /newfiles
 /register.url
+
+!/lua53.exe
+!/lua54.exe
