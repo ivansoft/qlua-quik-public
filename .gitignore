@@ -30,8 +30,8 @@
 
 # /kds.lua
 
-/clear.cmd
-/clear_wnd.cmd
+# /clear.cmd
+# /clear_wnd.cmd
 /newfiles
 /register.url
 
