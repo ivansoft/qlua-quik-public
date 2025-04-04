@@ -1,8 +1,10 @@
-message("test_lua_env")
+message = message or print
+-- local isRunningFromQuik = message ~= print
+message("test_luaenv")
 
-require "iif"
 local dump = require("dump").extended
-local inspect = require 'inspect'
+-- local inspect = require('inspect')
+-- local dump = inspect
 
 -- To avoid polluting the global space, either define all operations inside table or use local
 
@@ -27,7 +29,7 @@ local function writeArgs(file)
 		i_min = i_min + 1   -- so that i_min is the lowest int index for which arg is not nil
 
 		for i = i_min, #arg do
-			file:write( string.format( "arg[%d] = %s", i, arg[ i ] ) )
+			file:write( string.format( "arg[%d] = %s\n", i, arg[ i ] ) )
 		end
 	else
 		file:write("global 'arg' is nil")
@@ -54,9 +56,12 @@ local function listFunctions(object)
 	return table.concat(result, '\n')
 end
 
+getWorkingFolder = getWorkingFolder or function() return io.popen("cd"):read('l') end
+
+local filename = getScriptPath and "test_luaenv_quik.txt" or "test_luaenv_lua.txt"
+
 function main( )
-	local filename = getWorkingFolder() .."\\Logs\\lua_info_quik.txt"
-	local file = assert(io.open(filename, "w"))
+	local file = assert(io.open(getWorkingFolder() .. "\\Logs\\" .. filename, "w"))
 
 	message(filename)
 
@@ -73,7 +78,13 @@ function main( )
 	_ENV["luaenv_tbl"] = {}
 	_ENV["luaenv_int"] = 1
 	_ENV["luaenv_bool"] = false
+	_ENV.package.path = _ENV.package.path:gsub(getWorkingFolder(), "QUIK")
+	_ENV.package.cpath = _ENV.package.cpath:gsub(getWorkingFolder(), "QUIK")
 	file:write("_ENV = " .. dump(_ENV,'_ENV') .. "\n")
 
 	file:close()
+end
+
+if not getScriptPath then
+	main()
 end
