@@ -10,6 +10,7 @@
 
 *.exe
 *.dll
+*.so
 *.dat
 *.ik
 *.bin
