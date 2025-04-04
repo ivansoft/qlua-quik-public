@@ -1,4 +1,5 @@
 message = message or print
+-- local isRunningFromQuik = message ~= print
 message("test_luapath")
 
 message(package.path)
@@ -19,20 +20,24 @@ message(package.cpath)
 
 -- функции getWorkingFolder и getScriptPath есть только в окружении квика
 
-getWorkingFolder = getWorkingFolder or function() return "." end
+getWorkingFolder = getWorkingFolder or function() return io.popen("cd"):read('l') end
 
-local filename = getScriptPath and "test_luapath_quik.txt" or "test_luapath_interpreter.txt"
+local filename = getScriptPath and "test_luapath_quik.txt" or "test_luapath_lua.txt"
 
 function main()
 	local file = assert(io.open(getWorkingFolder() .. "\\Logs\\" .. filename, "w"))
 
-	file:write(getWorkingFolder() .. "\n\n")
+	-- message(filename)
 
-	file:write("package.path\n")
-	file:write(package.path)
-	file:write("\n\n")
-	path = package.path
+	local wordir = getWorkingFolder()
+	wordir = wordir:gsub(os.getenv("USERPROFILE"), "%%USERPROFILE%%")
+	file:write(wordir .. "\n\n")
+
+	local path = package.path
 	path = path:gsub(getWorkingFolder(), "QUIK")
+	file:write("package.path\n")
+	file:write(path)
+	file:write("\n\n")
 	for line in path:gmatch("[^;]+;") do
 		file:write(line)
 		file:write("\n")
@@ -40,12 +45,12 @@ function main()
 
 	file:write("\n\n")
 
+	local cpath = package.cpath
+	cpath = cpath:gsub(getWorkingFolder(), "QUIK")
 	file:write("package.cpath\n")
-	file:write(package.cpath)
+	file:write(cpath)
 	file:write("\n\n")
-	path = package.cpath
-	path = path:gsub(getWorkingFolder(), "QUIK")
-	for line in path:gmatch("[^;]+;") do
+	for line in cpath:gmatch("[^;]+;") do
 		file:write(line)
 		file:write("\n")
 	end
