@@ -1,12 +1,11 @@
-require "iif"
-require "ex_table"
+local function iif(expr, trueval, falseval) if (expr) then return trueval else return falseval end end
 
 ----------------------------------------------
 --                 Helpers                  --
 ----------------------------------------------
 
 local GROUP_NAMES_CORE = {"constants", "functions", "objects"}
-local GROUP_NAMES_ALL = table.ijoin(GROUP_NAMES_CORE, {"specials"})
+local GROUP_NAMES_ALL = {"constants", "functions", "objects","specials"}
 local GROUP_NAME_DEFAULT = "objects"
 local GROUP_FILTERS = {
 	["constants"] = function(v) return type(v) == 'number' or type(v) == 'string' or type(v) == 'boolean' end,
