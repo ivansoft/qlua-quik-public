@@ -1,5 +1,6 @@
 local cjson = require 'cjson'
 local inspect = require 'inspect'
+local qtime = require 'qtime'
 
 local tables = {
 	['classes'] = "Classes",
@@ -31,30 +32,17 @@ local tables = {
 }
 
 local function trace(fmt, ...) PrintDbgStr("QLua[items] " .. string.format(fmt, ...)) end
--- local mt = {
--- 	log = function(file, fmt, ...)
--- 		file:write( string.format(fmt, ...))
--- 	end
--- }
+
 local dumpEx = require('dump').extended
---local dump = function(v) return inspect(v, {newline=' ',indent=''}) end
 local dump = function(obj) return cjson.encode(obj) end
+--local dump = function(v) return inspect(v, {newline=' ',indent=''}) end
 
 function main( ... )
-	local timestamp = os.date('%Y%m%d%H%M%S')
-	local file = assert(io.open(getWorkingFolder() .."\\Logs\\".. ("test_quikitems_%s.txt"):format(timestamp), "w"))
-	-- trace("%s", inspect(file))
-	-- trace("%s", inspect(debug.getmetatable(file)))
-	-- local mt = debug.getmetatable(file)
-	-- mt.__index.log = function(file, fmt, ...)
-	-- 	file:write(string.format(fmt, ...))
-	-- end
-	-- trace("%s", inspect(debug.getmetatable(file)))
+	local file = assert(io.open(getWorkingFolder() .."\\Logs\\test_quik_items.txt", "w"))
 	local log = function(fmt, ...)
 		file:write(string.format(fmt, ...))
 		file:write("\n")
 	end
-	-- log("%s", "test2")
 
 	local customcounts = {
 		['classes']=999,
@@ -71,8 +59,6 @@ function main( ... )
 			maxlen = math.max(table_name:len(), maxlen)
 		end
 		for _,table_name in ipairs(tables) do
-			--local count = load('return ' .. tostring(params and params[table_name] or 5-1))
-			--local count = params and params[table_name] or 5
 			local count = customcounts[table_name] or 5
 			--trace('%s %d %d  #%d', table_name, count, math.max(math.min(count,getNumberOf(table_name)),5), getNumberOf(table_name))
 			for i=0,math.max(math.min(count-1,getNumberOf(table_name)-1),5-1) do
@@ -91,61 +77,64 @@ function main( ... )
 	dumptables({ 'all_trades' })
 
 
-	local futures = {}
-	local futures_arr = {}
-	local day = 24 * 60 * 60
-	local nowdate = tonumber(os.date('%Y%m%d', os.time() + day))
-	trace(os.date('%Y-%m-%d %H:%M:%S', os.time() + day))
-	local filter = function(class_code, base_active_seccode, mat_date)
-		return class_code == 'SPBFUT' and nowdate < mat_date -- and base_active_seccode == 'GAZR'
-	end
-	local filtered_ids = SearchItems('securities', 0, getNumberOf('securities')-1, filter, 'class_code,base_active_seccode,mat_date')
 	log(string.rep('-', 84))
 	do
-		local min_mat_date = {}
-		for _,id in ipairs(filtered_ids) do
-			local tbl = getItem('securities',id)
-			min_mat_date[tbl.base_active_seccode] = math.min(min_mat_date[tbl.base_active_seccode] or math.huge, tbl.mat_date)
+		local futures = {}
+		local futures_arr = {}
+		local day = 24 * 60 * 60
+		local nowdate = tonumber(os.date('%Y%m%d', os.time() + day))
+		trace(os.date('%Y-%m-%d %H:%M:%S', os.time() + day))
+		local filter = function(class_code, base_active_seccode, mat_date)
+			return class_code == 'SPBFUT' and nowdate < mat_date -- and base_active_seccode == 'GAZR'
 		end
-		trace(dump(min_mat_date))
-		local count = 0
-		for _,id in ipairs(filtered_ids) do
-			local tbl = getItem('securities',id)
-			if min_mat_date[tbl.base_active_seccode] == tbl.mat_date then
-				futures[tbl.base_active_seccode] = tbl
-				count = count + 1
-				futures_arr[count] = tbl.base_active_seccode
+		local filtered_ids = SearchItems('securities', 0, getNumberOf('securities')-1, filter, 'class_code,base_active_seccode,mat_date')
+		if filtered_ids then
+			local min_mat_date = {}
+			for _,id in ipairs(filtered_ids) do
+				local tbl = getItem('securities',id)
+				min_mat_date[tbl.base_active_seccode] = math.min(min_mat_date[tbl.base_active_seccode] or math.huge, tbl.mat_date)
+			end
+			trace(dump(min_mat_date))
+			for _,id in ipairs(filtered_ids) do
+				local tbl = getItem('securities',id)
+				if min_mat_date[tbl.base_active_seccode] == tbl.mat_date then
+					futures[tbl.base_active_seccode] = tbl
+					table.insert(futures_arr, tbl.base_active_seccode)
+				end
 			end
 		end
-		--futures_arr:sort()
-		table.sort(futures_arr)
-		local sortf = function(a, b)
-			return a:upper() < b:upper()
-		end
+		local sortf = function(a, b) return a:upper() < b:upper() end
 		table.sort(futures_arr, sortf)
 		trace(dump(futures_arr))
-	end
-	--log(inspect(futures_arr))
-	for k,v in pairs(futures) do
-		log("%11s : %21s : %s", ("[%s]"):format(k), ("%7s %13s"):format(v.sec_code, v.name), dump(v))
+		--log(inspect(futures_arr))
+		for _,k in ipairs(futures_arr) do
+			v = futures[k]
+			log("%11s : %21s : %s", ("[%s]"):format(k), ("%7s %13s"):format(v.sec_code, v.name), dump(v))
+		end
+		-- for k,v in pairs(futures) do
+		-- 	log("%11s : %21s : %s", ("[%s]"):format(k), ("%7s %13s"):format(v.sec_code, v.name), dump(v))
+		-- end
 	end
 
 
 	log(string.rep('-', 84))
 	do
 		local filter = function(class_code, flags)
+			-- 0x01 - order active / inactive
 			return class_code == 'SPBFUT' and (bit.test(flags,0))
 		end
 		local filtered_ids = SearchItems('orders', 0, getNumberOf('orders')-1, filter, 'class_code,flags')
 		if filtered_ids then
 			for i,id in ipairs(filtered_ids) do
-				--if i == 1 then
-					local tbl = getItem('orders',id)
-					log("orders[%d] : %s : %s", id, ("%s %s %s"):format(tbl.sec_code, tbl.qty, tbl.order_num), dump(tbl))
-					log(dumpEx(tbl))
-					--trace(dumpEx(tbl))
-				--end
+				local tbl = getItem('orders',id)
+				tbl.withdraw_datetime = qtime.format("%Y%m%d %H%M%S", tbl.withdraw_datetime)  -- время снятия заявки
+				tbl.datetime  = qtime.format("%Y%m%d %H%M%S", tbl.datetime)  -- время выставления заявки
+				log("orders[%d] : %s : %s", id, ("%s %s %s"):format(tbl.sec_code, tbl.qty, tbl.order_num), dump(tbl))
+				trace(dumpEx(tbl))
+				-- log(dumpEx(tbl))
 			end
+		else
+			log("no orders")
 		end
 	end
 
@@ -155,29 +144,33 @@ function main( ... )
 		--os.time() - os.time(order_date_time) <= 3600  -- created in last 30 days  -- class_code == 'SPBFUT' and
 		--firmid ~= 'MC0003300000'
 		--[[
-			Р’Р°Р¶РЅРѕ!
-			РµСЃР»Рё РїРѕР»Рµ, РїРµСЂРµРґР°РЅРЅРѕРµ РІ SearchItems РѕС‚СЃСѓС‚СЃС‚РІСѓРµС‚ РІ СЃС‚СЂСѓРєС‚СѓСЂРµ
-			С‚Рѕ РІСЃРµ РїР°СЂР°РјРµС‚СЂС‹ СЃРјРµС‰Р°СЋС‚СЃСЏ !!!!
-			С‚Р°РєРѕРµ РїРѕР»Рµ РЅРµ РїРµСЂРµРґР°РµС‚СЃСЏ РІ filter-С„СѓРЅРєС†РёСЋ
-			Рё РІСЃРµ РїР°СЂР°РјРµС‚СЂС‹ Р·Р° С‚Р°РєРёРј РїРѕР»РµРј СЃРјРµС‰СЏСЋС‚СЃСЏ РІР»РµРІРѕ
-			РїСЂРёРјРµСЂ - 'order_date_time' - ?? РµСЃС‚СЊ РґР»СЏ stop-order С„РѕРЅРґРѕРІРѕР№ СЃРµРєС†РёРё, РЅРѕ РѕС‚СЃСѓС‚СЃС‚РІСѓРµС‚ РІ СЃСЂРѕС‡РЅРѕР№ ??
-			     РІРѕРѕР±С‰Рµ, РµСЃС‚СЊ
+			Важно!
+			если поле, переданное в SearchItems отсутствует в структуре
+			то все параметры смещаются !!!!
+			такое поле не передается в filter-функцию
+			и все параметры за таким полем смещяются влево
+			пример - 'order_date_time' - ?? есть для stop-order фондовой секции, но отсутствует в срочной ??
+			     вообще, есть
 		]]
 		local filter = function(class_code, flags)
+			--  (0)0x0001 - order active / inactive
+			--  (5)0x0020 - order awaiting activation
+			-- (15)0x8000 - calculation of minimum/maximum is in the process
 			return class_code=='SPBFUT' and (bit.test(flags,0) or bit.test(flags,5) or bit.test(flags,15))
 		end
 		local filtered_ids = SearchItems('stop_orders', 0, getNumberOf('stop_orders')-1, filter, 'class_code,flags')
 		if filtered_ids then
 			for i,id in ipairs(filtered_ids) do
-				--if i == 2 then
-					local tbl = getItem('stop_orders',id)
-					log("stop_orders[%d] : %s : %s", id, ("%s %s %s"):format(tbl.sec_code, tbl.qty, tbl.order_num), dump(tbl))
-					log(dumpEx(tbl))
-					--trace(dumpEx(tbl))
-				--end
+				local tbl = getItem('stop_orders',id)
+				tbl.withdraw_datetime = qtime.format("%Y%m%d %H%M%S", tbl.withdraw_datetime)  -- время снятия стоп-заявки
+				tbl.activation_date_time = qtime.format("%Y%m%d %H%M%S", tbl.activation_date_time)  -- время активации стоп-заявки
+				tbl.order_date_time = qtime.format("%Y%m%d %H%M%S", tbl.order_date_time)  -- время выставления стоп-заявки
+				log("stop_orders[%d] : %s : %s", id, ("%s %s %s"):format(tbl.sec_code, tbl.qty, tbl.order_num), dump(tbl))
+				trace(dumpEx(tbl))
+				-- log(dumpEx(tbl))
 			end
 		else
-			trace("no stop orders")
+			log("no stop orders")
 		end
 	end
 
@@ -189,13 +182,15 @@ function main( ... )
 		local filtered_ids = SearchItems('trades', 0, getNumberOf('trades')-1, filter, 'class_code')
 		if filtered_ids then
 			for i,id in ipairs(filtered_ids) do
-				--if i == 1 then
-					local tbl = getItem('trades',id)
-					log("trades[%d] : %s : %s", id, ("%s %s"):format(tbl.sec_code, tbl.qty), dump(tbl))
-					log(dumpEx(tbl))
-					--trace(dumpEx(tbl))
-				--end
+				local tbl = getItem('trades',id)
+				tbl.datetime = qtime.format("%Y%m%d %H%M%S", tbl.datetime)  -- время прохожденя сделки
+				tbl.canceled_datetime = qtime.format("%Y%m%d %H%M%S", tbl.canceled_datetime)  -- время отмены сделки
+				log("trades[%d] : %s : %s", id, ("%s %s"):format(tbl.sec_code, tbl.qty), dump(tbl))
+				trace(dumpEx(tbl))
+				-- log(dumpEx(tbl))
 			end
+		else
+			log("no trades")
 		end
 	end
 
