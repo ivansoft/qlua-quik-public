@@ -40,3 +40,6 @@
 
 !/libcrypto-3-x64.dll
 !/libssl-3-x64.dll
+
+!/winsqlite3.dll
+!/sqlite3.exe
