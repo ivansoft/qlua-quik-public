@@ -84,9 +84,6 @@ _G.assert()
 _G.collectgarbage()
 _G.dofile()
 _G.error()
-_G.filterCombine()
-_G.filterEmpty()
-_G.filterNil()
 _G.getBuySellInfo()
 _G.getBuySellInfoEx()
 _G.getCandlesByIndex()
@@ -122,9 +119,6 @@ _G.getTrdAccByClientCode()
 _G.getUniqTransID()
 _G.getWorkingFolder()
 _G.getmetatable()
-_G.identity()
-_G.iif()
-_G.iiff()
 _G.ipairs()
 _G.isConnected()
 _G.isDarkTheme()
@@ -136,7 +130,6 @@ _G.main()
 _G.message()
 _G.message_ex()
 _G.next()
-_G.nofilter()
 _G.pairs()
 _G.pcall()
 _G.prec_time()
@@ -199,9 +192,6 @@ dofile()
 dump.compact()
 dump.extended()
 error()
-filterCombine()
-filterEmpty()
-filterNil()
 getBuySellInfo()
 getBuySellInfoEx()
 getCandlesByIndex()
@@ -237,9 +227,6 @@ getTrdAccByClientCode()
 getUniqTransID()
 getWorkingFolder()
 getmetatable()
-identity()
-iif()
-iiff()
 io.close()
 io.flush()
 io.input()
@@ -285,7 +272,6 @@ math.ult()
 message()
 message_ex()
 next()
-nofilter()
 os.clock()
 os.date()
 os.difftime()
@@ -335,29 +321,7 @@ string.sub()
 string.unpack()
 string.upper()
 table.concat()
-table.contains()
-table.count()
-table.extract()
-table.filter()
-table.flatten()
-table.haskey()
-table.iextract()
-table.ifilter()
-table.iflatten()
-table.iflattenr()
-table.ijoin()
-table.implode()
-table.indexof()
 table.insert()
-table.iremoveval()
-table.iremovevalall()
-table.iremovevalfirst()
-table.iremovevallast()
-table.isempty()
-table.itranslate()
-table.join()
-table.keys()
-table.lastindexof()
 table.move()
 table.pack()
 table.remove()
@@ -367,7 +331,6 @@ table.smaxn()
 table.sort()
 table.sremove()
 table.ssort()
-table.translate()
 table.unpack()
 tonumber()
 tostring()
@@ -492,9 +455,6 @@ _ENV = {
    collectgarbage()
    dofile()
    error()
-   filterCombine()
-   filterEmpty()
-   filterNil()
    getBuySellInfo()
    getBuySellInfoEx()
    getCandlesByIndex()
@@ -530,9 +490,6 @@ _ENV = {
    getUniqTransID()
    getWorkingFolder()
    getmetatable()
-   identity()
-   iif()
-   iiff()
    ipairs()
    isConnected()
    isDarkTheme()
@@ -544,7 +501,6 @@ _ENV = {
    message()
    message_ex()
    next()
-   nofilter()
    pairs()
    pcall()
    prec_time()
@@ -619,7 +575,7 @@ _ENV = {
       tmpfile()
       type()
       write()
-      [stderr] = file (00007FF80A166100), <metatable> = {
+      [stderr] = file (00007FF812AE6100), <metatable> = {
          [__name] = FILE*
          __close()
          ["__gc"] = _ENV.io.stderr.<metatable>.__close
@@ -634,14 +590,14 @@ _ENV = {
             write()
          }
       }
-      [stdin] = file (00007FF80A166050), <metatable> = {
+      [stdin] = file (00007FF812AE6050), <metatable> = {
          [__name] = FILE*
          ["__close"] = _ENV.io.stderr.<metatable>.__close
          ["__gc"] = _ENV.io.stderr.<metatable>.__close
          ["__tostring"] = _ENV.io.stderr.<metatable>.__tostring
          ["__index"] = _ENV.io.stderr.<metatable>.__index
       }
-      [stdout] = file (00007FF80A1660A8), <metatable> = {
+      [stdout] = file (00007FF812AE60A8), <metatable> = {
          [__name] = FILE*
          ["__close"] = _ENV.io.stderr.<metatable>.__close
          ["__gc"] = _ENV.io.stderr.<metatable>.__close
@@ -713,29 +669,7 @@ _ENV = {
    }
    [table] = {
       concat()
-      contains()
-      count()
-      extract()
-      filter()
-      flatten()
-      haskey()
-      iextract()
-      ifilter()
-      iflatten()
-      iflattenr()
-      ijoin()
-      implode()
-      indexof()
       insert()
-      iremoveval()
-      iremovevalall()
-      ["iremovevalfirst"] = _ENV.table.iremoveval
-      iremovevallast()
-      isempty()
-      itranslate()
-      join()
-      keys()
-      lastindexof()
       move()
       pack()
       remove()
@@ -745,7 +679,6 @@ _ENV = {
       sort()
       sremove()
       ssort()
-      translate()
       unpack()
    }
    [utf8] = {
@@ -763,8 +696,6 @@ _ENV = {
       loadlib()
       searchpath()
       [loaded] = {
-         [ex_table] = true
-         [iif] = true
          ["bit"] = _ENV.bit
          ["coroutine"] = _ENV.coroutine
          ["debug"] = _ENV.debug
@@ -914,9 +845,6 @@ _ENV = {
       ["collectgarbage"] = _ENV.collectgarbage
       ["dofile"] = _ENV.dofile
       ["error"] = _ENV.error
-      ["filterCombine"] = _ENV.filterCombine
-      ["filterEmpty"] = _ENV.filterEmpty
-      ["filterNil"] = _ENV.filterNil
       ["getBuySellInfo"] = _ENV.getBuySellInfo
       ["getBuySellInfoEx"] = _ENV.getBuySellInfoEx
       ["getCandlesByIndex"] = _ENV.getCandlesByIndex
@@ -952,9 +880,6 @@ _ENV = {
       ["getUniqTransID"] = _ENV.getUniqTransID
       ["getWorkingFolder"] = _ENV.getWorkingFolder
       ["getmetatable"] = _ENV.getmetatable
-      ["identity"] = _ENV.identity
-      ["iif"] = _ENV.iif
-      ["iiff"] = _ENV.iiff
       ["ipairs"] = _ENV.ipairs
       ["isConnected"] = _ENV.isConnected
       ["isDarkTheme"] = _ENV.isDarkTheme
@@ -966,7 +891,6 @@ _ENV = {
       ["message"] = _ENV.message
       ["message_ex"] = _ENV.message_ex
       ["next"] = _ENV.next
-      ["nofilter"] = _ENV.nofilter
       ["pairs"] = _ENV.pairs
       ["pcall"] = _ENV.pcall
       ["prec_time"] = _ENV.prec_time
