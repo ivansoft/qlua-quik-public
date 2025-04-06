@@ -28,6 +28,7 @@
 /QRYPTO.CFG
 /*.txk
 /qcrypto.ini
+/MP_Pr_client.ini
 
 /kds.lua
 
