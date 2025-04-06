@@ -15,6 +15,7 @@
 *.ik
 *.bin
 *.wnd
+*.txk
 
 *.pdf
 *.chm
@@ -26,7 +27,6 @@
 /keygen.cnt
 /KEYGEN.HLP
 /QRYPTO.CFG
-/*.txk
 /qcrypto.ini
 /MP_Pr_client.ini
 /INFO.ini
